@@ -2,26 +2,70 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ./disk-config.nix
+    ./deck.nix
   ];
 
-  jovian.steam = {
+  # just kind of a grab bag of stuff
+  environment.systemPackages = with pkgs; [
+    tailscale
+    rustup
+    (wrapOBS {
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-backgroundremoval
+        obs-pipewire-audio-capture 
+        obs-livesplit-one
+        obs-multi-rtmp
+        obs-vaapi
+        obs-gstreamer
+        input-overlay
+        obs-3d-effect
+        obs-composite-blur
+        obs-gradient-source
+        waveform
+      ];
+    })
+    (retroarch.override {
+      cores = with libretro; [
+        bsnes
+        bsnes-mercury-balanced
+        gambatte
+        genesis-plus-gx
+        gpsp
+        mgba
+        mupen64plus
+        parallel-n64
+        sameboy
+        snes9x
+        tgbdual
+        vba-next
+      ];
+    })
+  ];
+
+  boot.supportedFilesystems = [ "ntfs" ]; # i would like to be able towrite to ntfs please
+
+  services.tailscale = {
     enable = true;
-    autoStart = true;
-
-    desktopSession = "plasmawayland";
-
-    user = "vivlim";
-
+    useRoutingFeatures = "client";
+    extraUpFlags = [
+    ];
   };
 
-  jovian.decky-loader = {
-    enable = true;
+  virtualisation = {
+    waydroid.enable = true;
   };
 
-  jovian.devices.steamdeck = {
+  networking.firewall = {
     enable = true;
-    autoUpdate = false; # firmware / bios. not sure if i want it yet
+    interfaces = {
+      tailscale0 = {
+        allowedTCPPortRanges = []; # [{ from = 1000; to = 2000; }]
+        allowedUDPPortRanges = []; # [{ from = 1000; to = 2000; }]
+      };
+    };
   };
+
 
   boot.loader.grub = {
     # no need to set devices, disko will add all devices that have a EF02 partition to the list already
@@ -33,6 +77,7 @@
   networking.networkmanager.enable = true;
   system.stateVersion = "23.11";
 
+  # unfree as in unfreedom
   nixpkgs.config.allowUnfree = true;
 
   # these were set in base.

@@ -10,11 +10,11 @@
         "unstable": "unstable"
       },
       "locked": {
-        "lastModified": 1710228223,
-        "narHash": "sha256-nqie8+sN9dh00wdA3WpU3CblWDlV1jQDk8dhDWLkJU8=",
+        "lastModified": 1710310808,
+        "narHash": "sha256-EmrJeUgqvrMCKaBVzRR1Zdj8iNEM1F53bn2xvjZmO50=",
         "owner": "vivlim",
         "repo": "nix-base",
-        "rev": "3b19c4b48f785437c7d082e90f1af06617cb5047",
+        "rev": "dd9b5e20885497a31a950baacce02b3c0f091756",
         "type": "github"
       },
       "original": {

@@ -31,26 +31,46 @@
         ({ config, pkgs, ... }: { nixpkgs.overlays = [ jovian.overlays.default ]; });
       machineFactory = base.machineFactory;
       colmenaTargetFactory = base.colmenaTargetFactory;
-    in {
-      # nix build .#nixosConfigurations.vivdeck.config.system.build.toplevel
-      nixosConfigurations = with base; {
-        vivdeck = (machineFactory {
+
+      # Using a wrapper I have in `base` that unpacks 'moduleBundles' defined there.
+      machineFactoryArgs = {
           system = "x86_64-linux";
           hostname = "vivdeck";
           inherit inputs;
           modules = [
             disko.nixosModules.disko
             ./configuration.nix
-            moduleBundles.system-base
-            moduleBundles.plasma-desktop
-            moduleBundles.system-physical
-            moduleBundles.gaming-hardware
-            moduleBundles.amd
+            base.moduleBundles.system-base
+            base.moduleBundles.plasma-desktop
+            base.moduleBundles.system-physical
+            base.moduleBundles.gaming-hardware
+            base.moduleBundles.amd
             sops-nix.nixosModules.sops
             jovian.nixosModules.jovian
             overlayModule
           ];
-        });
+        };
+
+    in {
+      # nix build .#nixosConfigurations.vivdeck.config.system.build.toplevel
+      nixosConfigurations = {
+        vivdeck = (base.machineFactory machineFactoryArgs);
+      };
+
+      colmena = {
+        meta = {
+          nixpkgs = import nixpkgs {
+            system = "x86_64-linux";
+          };
+          specialArgs = {
+            inherit inputs;
+          };
+        };
+        vivdeck = (base.colmenaTargetFactory machineFactoryArgs)
+        // {
+            deployment.targetHost = "192.168.1.167"; # todo: change to tailscale hostname after it's added.
+            deployment.targetUser = "root";
+        };
       };
 
       devShells = base.devShells;

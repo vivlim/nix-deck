@@ -16,6 +16,9 @@
   # Need to have this or we won't have steam available on the desktop (which is *very* funny)
   programs.steam = {
     enable = true;
+    # Runs steam with https://github.com/Supreeeme/extest
+    # Without this, steam input on wayland sessions doesn't draw a visible cursor.
+    extest.enable = true;
   };
 
   jovian.decky-loader = {
@@ -28,6 +31,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    maliit-keyboard # onscreen keyboard, integrates with plasma nicely
     steamdeck-firmware # gives us `jupiter-biosupdate` and `jupiter-controller-update` https://jovian-experiments.github.io/Jovian-NixOS/devices/valve-steam-deck/index.html
     jupiter-dock-updater-bin # `jupiter-dock-updater`
   ];

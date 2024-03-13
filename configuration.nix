@@ -22,6 +22,7 @@
         obs-3d-effect
         obs-composite-blur
         obs-gradient-source
+        obs-vkcapture # Launch games with `obs-gamecapture %command%` to capture.
         waveform
       ];
     })

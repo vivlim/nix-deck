@@ -41,6 +41,7 @@
         vba-next
       ];
     })
+    wl-clipboard # used by waydroid (among other things)
   ];
 
   boot.supportedFilesystems = [ "ntfs" ]; # i would like to be able towrite to ntfs please

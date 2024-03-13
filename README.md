@@ -9,7 +9,9 @@ This config has the following qualities (at time of writing, and this is not an 
 - Full disk encryption + lvm (via nixos-anywhere/disko, see later in this readme)
     - Note that entering the encryption password requires attaching a usb keyboard during boot, at the moment.
 - Boots up in gamescope (see ./deck.nix)
-- Plasma ([from my base](https://github.com/vivlim/nix-base/blob/main/desktop/plasma.nix))
+- Plasma wayland session ([from my base](https://github.com/vivlim/nix-base/blob/main/desktop/plasma.nix))
+    - maliit-keyboard provides touch keyboard
+    - steam launches with [extest](https://github.com/Supreeeme/extest), so you can see the visible cursor move when steam input moves it in wayland sessions
 - [Flatpak support + Discover (defined in my base)](https://github.com/vivlim/nix-base/blob/main/applications/flatpak.nix)
 - [nix-ld](https://github.com/Mic92/nix-ld), which allows running unpatched binaries on nixos ([config is in my base](https://github.com/vivlim/nix-base/blob/main/applications/nix-ld.nix))
 - obs studio, waydroid, retroarch, some other misc stuff (see ./configuration.nix)

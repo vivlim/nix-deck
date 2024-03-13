@@ -3,6 +3,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     ./disk-config.nix
     ./deck.nix
+    ./onscreen-keyboard.nix
   ];
 
   # just kind of a grab bag of stuff

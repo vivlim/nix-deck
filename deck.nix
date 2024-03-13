@@ -31,7 +31,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    maliit-keyboard # onscreen keyboard, integrates with plasma nicely
+    glib.bin
+
     steamdeck-firmware # gives us `jupiter-biosupdate` and `jupiter-controller-update` https://jovian-experiments.github.io/Jovian-NixOS/devices/valve-steam-deck/index.html
     jupiter-dock-updater-bin # `jupiter-dock-updater`
   ];

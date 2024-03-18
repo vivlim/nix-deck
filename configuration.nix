@@ -6,10 +6,14 @@
     ./onscreen-keyboard.nix
   ];
 
+  viv.usePatchedVlc = true;
+
   # just kind of a grab bag of stuff
   environment.systemPackages = with pkgs; [
     tailscale
     rustup
+    moonlight-qt
+    sunshine
     (wrapOBS {
       plugins = with pkgs.obs-studio-plugins; [
         wlrobs

@@ -10,9 +10,9 @@
     };
     base = {
       url = "github:vivlim/nix-base/main";
+      #url = "path:/home/vivlim/nix-workspace/nix-base/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #base = { url = "path:/home/vivlim/git/nix-base/"; };
 
     disko = {
       url = "github:nix-community/disko";
@@ -68,7 +68,7 @@
         };
         vivdeck = (base.colmenaTargetFactory machineFactoryArgs)
         // {
-            deployment.targetHost = "192.168.1.167"; # todo: change to tailscale hostname after it's added.
+            deployment.targetHost = "100.118.185.120"; # todo: change to tailscale hostname after it's added.
             deployment.targetUser = "root";
         };
       };

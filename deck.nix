@@ -8,7 +8,7 @@
 
     # We have to use this instead of services.xserver.displayManager.defaultSession
     # https://jovian-experiments.github.io/Jovian-NixOS/options.html#jovian.steam.desktopSession
-    desktopSession = "plasmawayland";
+    desktopSession = "plasma";
 
     user = "vivlim"; # it's me!
   };

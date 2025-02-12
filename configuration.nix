@@ -3,7 +3,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     ./disk-config.nix
     ./deck.nix
-    ./onscreen-keyboard.nix
+    #./onscreen-keyboard.nix
   ];
 
   viv.usePatchedVlc = true;
@@ -31,8 +31,7 @@
         waveform
       ];
     })
-    (retroarch.override {
-      cores = with libretro; [
+    (retroarch.withCores (cores: with cores; [
         bsnes
         bsnes-mercury-balanced
         gambatte
@@ -45,8 +44,8 @@
         snes9x
         tgbdual
         vba-next
-      ];
-    })
+      ])
+    )
     wl-clipboard # used by waydroid (among other things)
   ];
 
@@ -91,4 +90,6 @@
   # session is specified in jovian.steam.desktopSession instead.
   services.xserver.displayManager.defaultSession = lib.mkForce null;
   services.xserver.displayManager.sddm.enable = lib.mkForce false;
+
+  nixpkgs.config.permittedInsecurePackages = [ "SDL_ttf-2.0.11" ];
 }

@@ -6,7 +6,7 @@
     #./onscreen-keyboard.nix
   ];
 
-  viv.usePatchedVlc = true;
+  #viv.usePatchedVlc = false;
 
   # just kind of a grab bag of stuff
   environment.systemPackages = with pkgs; [
@@ -14,38 +14,6 @@
     rustup
     moonlight-qt
     sunshine
-    (wrapOBS {
-      plugins = with pkgs.obs-studio-plugins; [
-        wlrobs
-        obs-backgroundremoval
-        obs-pipewire-audio-capture 
-        obs-livesplit-one
-        obs-multi-rtmp
-        obs-vaapi
-        obs-gstreamer
-        input-overlay
-        obs-3d-effect
-        obs-composite-blur
-        obs-gradient-source
-        obs-vkcapture # Launch games with `obs-gamecapture %command%` to capture.
-        waveform
-      ];
-    })
-    (retroarch.withCores (cores: with cores; [
-        bsnes
-        bsnes-mercury-balanced
-        gambatte
-        genesis-plus-gx
-        gpsp
-        mgba
-        mupen64plus
-        parallel-n64
-        sameboy
-        snes9x
-        tgbdual
-        vba-next
-      ])
-    )
     wl-clipboard # used by waydroid (among other things)
   ];
 

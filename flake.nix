@@ -1,6 +1,8 @@
 {
   description = "viv's steamdeck";
-  inputs = { # update a single input; nix flake lock --update-input nixpkgs
+  inputs = {
+  # update a single input; nix flake lock --update-input nixpkgs
+  # specific commit: nix flake update --override-input nixpkgs github:NixOS/nixpkgs/c6e957d81b96751a3d5967a0fd73694f303cc914
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };

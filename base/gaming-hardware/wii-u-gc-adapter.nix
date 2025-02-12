@@ -14,7 +14,7 @@ wii-u-gc-adapter =
 
     strictDeps = true;
     nativeBuildInputs = [ pkgs.pkg-config ];
-    buildInputs = [ pkgs.libusb pkgs.udev ] ;
+    buildInputs = [ pkgs.libusb1 pkgs.udev ] ;
 
     preBuild = ''
     echo "the cflags: $CFLAGS"

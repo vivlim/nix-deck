@@ -61,18 +61,17 @@
             ./retroarch.nix
             ./base/desktop/core.nix
             ./base/desktop/plasma.nix
-            ./base/desktop/pulseaudio.nix
+            #./base/desktop/pulseaudio.nix
             ./base/applications/gui-tools.nix
             ./base/applications/nix-ld.nix
-            ./base/applications/flatpak.nix
-            ./base/applications/vlc.nix
+            #./base/applications/flatpak.nix # needs update
+            #./base/applications/vlc.nix
             ./base/applications/tools.nix
-            ./base/applications/obs.nix
-            ./base/gaming-hardware/wii-u-gc-adapter.nix
+            #./base/applications/obs.nix
+            #./base/gaming-hardware/wii-u-gc-adapter.nix
             ./base/gaming-hardware/game-controllers.nix
             ./base/modules/swap_defaults.nix
             ./base/modules/prometheus_exporters.nix
-            ./base/hardware-specific
             ./base/hardware-specific/amd.nix
             ./base/system-base/core.nix
             ./base/system-base/user.nix

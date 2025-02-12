@@ -11,7 +11,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     base = {
-      url = "github:vivlim/nix-base/main";
+      url = "github:vivlim/nix-base/unstable";
       #url = "path:/home/vivlim/nix-workspace/nix-base/";
       inputs.nixpkgs.follows = "nixpkgs";
     };

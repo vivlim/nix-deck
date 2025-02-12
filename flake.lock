@@ -10,16 +10,16 @@
         "vscode-server": "vscode-server"
       },
       "locked": {
-        "lastModified": 1739342575,
-        "narHash": "sha256-nlnuw0nnpiOJlfyYBN8qKUJ4Wbqo84bhEVnizP6J0FE=",
+        "lastModified": 1739344099,
+        "narHash": "sha256-bM6PXL6kdwlYvUsryLiKAjfXpSExqWoWx7IUK4kO8vo=",
         "owner": "vivlim",
         "repo": "nix-base",
-        "rev": "c9985310a4bdd8527e0db35b1c6aba8283eda97d",
+        "rev": "2d67bb21874bb8fb482899910ddaf472f2724f98",
         "type": "github"
       },
       "original": {
         "owner": "vivlim",
-        "ref": "main",
+        "ref": "unstable",
         "repo": "nix-base",
         "type": "github"
       }
@@ -219,16 +219,16 @@
     },
     "unstable": {
       "locked": {
-        "lastModified": 1739138025,
-        "narHash": "sha256-M4ilIfGxzbBZuURokv24aqJTbdjPA9K+DtKUzrJaES4=",
+        "lastModified": 1739214665,
+        "narHash": "sha256-26L8VAu3/1YRxS8MHgBOyOM8xALdo6N0I04PgorE7UM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b2243f41e860ac85c0b446eadc6930359b294e79",
+        "rev": "64e75cd44acf21c7933d61d7721e812eac1b5a0a",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }

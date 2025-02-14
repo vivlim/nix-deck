@@ -25,9 +25,13 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, jovian, base, disko, sops-nix, ... }:
+  outputs = inputs@{ self, nixpkgs, jovian, base, disko, sops-nix, lix-module, ... }:
     let
       overlayModule =
         ({ config, pkgs, ... }: { nixpkgs.overlays = [ jovian.overlays.default ]; });
@@ -51,6 +55,7 @@
             base.moduleBundles.amd
             sops-nix.nixosModules.sops
             jovian.nixosModules.jovian
+            lix-module.nixosModules.default
             #overlayModule
           ];
         };

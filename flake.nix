@@ -49,7 +49,7 @@
             base.moduleBundles.amd
             sops-nix.nixosModules.sops
             jovian.nixosModules.jovian
-            overlayModule
+            #overlayModule
           ];
         };
 

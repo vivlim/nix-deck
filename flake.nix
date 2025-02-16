@@ -50,6 +50,7 @@
             base.moduleBundles.plasma-desktop
             #base.moduleBundles.flatpak # broken on plasma 6?
             ./flatpak.nix
+            ./plasma-nested.nix
             base.moduleBundles.system-physical
             base.moduleBundles.gaming-hardware
             base.moduleBundles.amd

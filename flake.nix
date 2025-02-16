@@ -16,6 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    lizard = {
+      url = "github:vivlim/lizard-askpass";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,7 +36,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, jovian, base, disko, sops-nix, lix-module, ... }:
+  outputs = inputs@{ self, nixpkgs, jovian, base, lizard, disko, sops-nix, lix-module, ... }:
     let
       overlayModule =
         ({ config, pkgs, ... }: { nixpkgs.overlays = [ jovian.overlays.default ]; });
@@ -57,6 +62,7 @@
             sops-nix.nixosModules.sops
             jovian.nixosModules.jovian
             lix-module.nixosModules.default
+            lizard.nixosModules.default
             #overlayModule
           ];
         };

@@ -20,6 +20,9 @@
 
   boot.supportedFilesystems = [ "ntfs" ]; # i would like to be able towrite to ntfs please
 
+  boot.initrd.systemd.enable = true;
+  boot.initrd.lizard-askpass.enable = true;
+
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "client";

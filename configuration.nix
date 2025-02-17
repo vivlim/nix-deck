@@ -3,7 +3,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     ./disk-config.nix
     ./deck.nix
-    #./onscreen-keyboard.nix
+    ./onscreen-keyboard.nix
   ];
 
   #viv.usePatchedVlc = false;

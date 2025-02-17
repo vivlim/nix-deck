@@ -22,6 +22,7 @@ ${gsettings-maliit}/bin/gsettings-maliit set org.maliit.keyboard.maliit plugin-p
 in {
   environment.systemPackages = with pkgs; [
     maliit-keyboard # onscreen keyboard, integrates with plasma nicely
+    maliit-framework
     gsettings-maliit
     dconf-editor-maliit
   ];

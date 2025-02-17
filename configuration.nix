@@ -60,8 +60,8 @@
 
   # these were set in base.
   # session is specified in jovian.steam.desktopSession instead.
-  services.xserver.displayManager.defaultSession = lib.mkForce null;
-  services.xserver.displayManager.sddm.enable = lib.mkForce false;
+  #services.xserver.displayManager.defaultSession = lib.mkForce null;
+  #services.xserver.displayManager.sddm.enable = lib.mkForce false;
 
   nixpkgs.config.permittedInsecurePackages = [ "SDL_ttf-2.0.11" ];
 }
